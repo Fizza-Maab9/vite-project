@@ -1,12 +1,15 @@
 
 import MyButton from '../components/MyButton'
 
-function Home() {
+function Home({ darkMode }) {
   return (
-    <div className="min-h-screen bg-orange-50 flex flex-col md:flex-row items-center justify-between px-10 md:px-20 py-16 gap-10">
+    <div className={`min-h-screen flex flex-col md:flex-row items-center justify-between px-10 md:px-20 py-16 gap-10 ${
+      darkMode ? "bg-gray-900 text-white" : "bg-orange-50 text-gray-900"
+    }`}>
 
       <div className="md:w-1/2">
-        <h1 className="text-5xl font-bold text-gray-900">
+
+        <h1 className="text-5xl font-bold">
           Welcome to <span className="text-orange-500">Foodie</span>
         </h1>
 
@@ -14,7 +17,9 @@ function Home() {
           Delicious Food, Happy Life!
         </h2>
 
-        <p className="text-gray-600 mt-5 text-lg leading-8">
+        <p className={`mt-5 text-lg leading-8 ${
+          darkMode ? "text-gray-300" : "text-gray-600"
+        }`}>
           Enjoy fresh burgers, tasty pizzas and delicious meals.
           We prepare every dish with love and fresh ingredients.
         </p>
@@ -22,6 +27,7 @@ function Home() {
         <div className="mt-7">
           <MyButton text="Explore Menu" />
         </div>
+
       </div>
 
       <div className="md:w-1/2">

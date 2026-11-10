@@ -1,9 +1,11 @@
 
 import MyButton from './MyButton'
 
-function Card({ title, description, price, image }) {
+function Card({ title, description, price, image, darkMode }) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className={`rounded-2xl shadow-lg overflow-hidden ${
+      darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+    }`}>
 
       <img
         src={image}
@@ -12,15 +14,16 @@ function Card({ title, description, price, image }) {
       />
 
       <div className="p-5">
-        <h2 className="text-2xl font-bold text-gray-800">
+
+        <h2 className="text-2xl font-bold">
           {title}
         </h2>
 
-        <p className="text-gray-500 mt-2">
+        <p className={darkMode ? "text-gray-300 mt-2" : "text-gray-500 mt-2"}>
           {description}
         </p>
 
-        <p className="text-orange-600 font-bold text-xl mt-3">
+        <p className="text-orange-500 font-bold text-xl mt-3">
           {price}
         </p>
 
@@ -28,8 +31,8 @@ function Card({ title, description, price, image }) {
           <MyButton text="Add" />
           <MyButton text="Delete" />
         </div>
-      </div>
 
+      </div>
     </div>
   )
 }
